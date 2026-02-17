@@ -7,6 +7,9 @@ module "eks" {
 
   vpc_id     = var.vpc_id
   subnet_ids = var.subnet_ids
+  cluster_endpoint_public_access       = true
+  cluster_endpoint_private_access      = true
+  cluster_endpoint_public_access_cidrs = var.cluster_endpoint_public_access_cidrs
 
   # EKS managed add-ons (optional but recommended)
   cluster_addons = {
@@ -27,4 +30,18 @@ module "eks" {
   tags = {
     Environment = var.env
   }
+
+access_entries = {
+  admin = {
+    principal_arn = var.admin_principal_arn
+    policy_associations = {
+      admin = {
+        policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+        access_scope = { type = "cluster" }
+        }
+      }
+    }
+}
+
+
 }

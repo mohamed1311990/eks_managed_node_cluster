@@ -1,19 +1,7 @@
-output "vpc_id" {
-  description = "The ID of the VPC"
-  value       = module.vpc.vpc_id
+output "cluster_name" {
+  value = module.eks.cluster_name
 }
 
-output "private_subnets" {
-  description = "List of private subnet IDs"
-  value       = module.vpc.private_subnets
-}
-
-output "public_subnets" {
-  description = "List of public subnet IDs"
-  value       = module.vpc.public_subnets
-}
-
-output "nat_gateway_ids" {
-  description = "NAT Gateway IDs"
-  value       = module.vpc.natgw_ids
+output "cluster_endpoint" {
+  value = module.eks.cluster_endpoint
 }

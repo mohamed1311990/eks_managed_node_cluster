@@ -37,3 +37,5 @@ crash.*.log
 *.pfx
 *.crt
 *.cer
+
+.DS_Store

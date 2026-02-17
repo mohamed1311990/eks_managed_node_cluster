@@ -13,4 +13,7 @@ module "eks" {
   env        = var.env
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
+  
+  admin_principal_arn = var.admin_principal_arn
+  cluster_endpoint_public_access_cidrs = var.cluster_endpoint_public_access_cidrs
 }
